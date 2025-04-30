@@ -42,7 +42,6 @@ const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({ onChange }) => {
                 checked={selectedRanges.includes(range.id)}
                 onChange={() => handleRangeChange(range.id)}
               />
-              <span className="checkmark"></span>
               {range.label}
             </label>
           </div>

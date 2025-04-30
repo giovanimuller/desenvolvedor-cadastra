@@ -57,13 +57,6 @@ const ColorsFilter: React.FC<ColorsFilterProps> = ({ onChange }) => {
                 checked={selectedColors.includes(color.id)}
                 onChange={() => handleColorChange(color.id)}
               />
-              <span 
-                className={`checkmark color-${color.id}`} 
-                style={{ 
-                  backgroundColor: selectedColors.includes(color.id) ? '#000' : `var(--color-${color.id})`,
-                  border: color.id === 'branco' && !selectedColors.includes(color.id) ? '1px solid #dedede' : 'none' 
-                }}
-              ></span>
               {color.name}
             </label>
           </div>
