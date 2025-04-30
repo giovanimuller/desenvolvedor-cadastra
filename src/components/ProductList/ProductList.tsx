@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PageTitle from '../PageTitle/PageTitle';
 import OrderBy from '../OrderBy/OrderBy';
 import Filters from '../Filters/Filters';
+import FilterButtons from '../FilterButtons/FilterButtons';
 import ProductCard from '../ProductCard/ProductCard';
 import { productService } from '../../services/ProductService';
 import { Product } from '../../ts/Product';
@@ -96,13 +97,18 @@ const ProductList: React.FC = () => {
   const handlePriceRangeChange = (ranges: string[]) => {
     setSelectedPriceRanges(ranges);
   };
-
   return (
     <div className="product-list">
       <div className="product-list-header">
         <PageTitle title="Blusas" />
         <OrderBy onChange={handleOrderChange} />
       </div>
+      <FilterButtons 
+        onColorsChange={handleColorsChange}
+        onSizesChange={handleSizesChange}
+        onPriceRangeChange={handlePriceRangeChange}
+        onOrderChange={handleOrderChange}
+      />
       <div className="product-list-content">
         <div className="product-list-grid">
           <div className="filters-column">

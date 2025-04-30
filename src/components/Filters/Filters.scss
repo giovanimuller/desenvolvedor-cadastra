@@ -8,4 +8,19 @@
     margin-bottom: 15px;
     text-transform: uppercase;
   }
+  
+  @media screen and (max-width: 768px) {
+    padding-right: 0;
+    
+    .colors-filter,
+    .sizes-filter,
+    .price-range-filter {
+      margin-bottom: 40px;
+      
+      h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #DEDEDE;
+      }
+    }
+  }
 }

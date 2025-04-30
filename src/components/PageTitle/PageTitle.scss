@@ -8,4 +8,12 @@
     letter-spacing: 0%;
     color: #333333;
   }
+  
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    
+    h1 {
+      font-size: 28px;
+    }
+  }
 }

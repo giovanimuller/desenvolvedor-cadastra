@@ -49,9 +49,29 @@
     font-size: 14px;
     color: #333333;
     cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
     
     &:hover {
       background-color: #F5F5F5;
+    }
+  }
+  
+  .modal-dropdown {
+    position: static;
+    box-shadow: none;
+    border: none;
+    margin-top: 0;
+    
+    .dropdown-item {
+      padding: 15px 0;
+      border-bottom: 1px solid #DEDEDE;
+      
+      &:last-child {
+        border-bottom: none;
+      }
     }
   }
 }
