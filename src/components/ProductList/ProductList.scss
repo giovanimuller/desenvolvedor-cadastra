@@ -1,5 +1,4 @@
 .product-list {
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -66,9 +65,7 @@
           grid-template-columns: repeat(2, 1fr);
         }
 
-        @media (max-width: 768px) {
-          grid-template-columns: 1fr;
-        }
+        
       }
       
       .load-more-container {
