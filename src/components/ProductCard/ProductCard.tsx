@@ -20,10 +20,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     }
   };
   
-  // Extract the image filename from the path
   const imageName = product.image.split('/').pop() ?? '';
   
-  // Use relative path with Vite's asset handling
   const imageSrc = new URL(`../../img/${imageName}`, import.meta.url).href;
   
   return (

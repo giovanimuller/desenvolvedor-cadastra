@@ -34,33 +34,27 @@ const ProductList: React.FC = () => {
     fetchProducts();
   }, []);
 
-  // Apply filters when any filter changes or when products change
   useEffect(() => {
-    // Skip applying filters initially when products are empty
     if (products.length === 0) return;
     
     applyFilters();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedColors, selectedSizes, selectedPriceRanges, sortOrder, products]);
 
   const applyFilters = () => {
     let filtered = [...products];
 
-    // Apply color filter
     if (selectedColors.length > 0) {
       filtered = filtered.filter(product => 
         selectedColors.includes(product.color.toLowerCase())
       );
     }
 
-    // Apply size filter
     if (selectedSizes.length > 0) {
       filtered = filtered.filter(product => 
         product.size.some(size => selectedSizes.includes(size.toLowerCase()))
       );
     }
 
-    // Apply price range filter
     if (selectedPriceRanges.length > 0) {
       filtered = filtered.filter(product => {
         return selectedPriceRanges.some(range => {
@@ -74,7 +68,6 @@ const ProductList: React.FC = () => {
       });
     }
 
-    // Apply sort order
     if (sortOrder) {
       if (sortOrder === 'recent') {
         filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

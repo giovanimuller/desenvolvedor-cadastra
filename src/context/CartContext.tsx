@@ -28,14 +28,12 @@ interface CartProviderProps {
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
 
-  // Reset cart when the page is reloaded
   useEffect(() => {
     cartHelpers.clearCart();
     setCartItems([]);
   }, []);
 
   const addToCart = (product: Product) => {
-    // Always add the product without checking for duplicates
     cartHelpers.addToCart(product);
     setCartItems(cartHelpers.getCartItems());
   };
@@ -50,7 +48,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     setCartItems([]);
   };
   const isInCart = (productId: string) => {
-    return false; // Always return false to allow adding multiple times
+    return false;
   };
 
   const contextValue = useMemo(() => ({
