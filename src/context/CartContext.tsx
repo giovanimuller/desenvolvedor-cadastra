@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import React, { createContext, useState, useContext, ReactNode, useEffect, useMemo } from 'react';
 import { Product } from '../ts/Product';
 import * as cartHelpers from '../utils/cartHelpers';
 
@@ -28,12 +28,10 @@ interface CartProviderProps {
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
 
-  // Load cart from localStorage on initial render
+  // Reset cart when the page is reloaded
   useEffect(() => {
-    const savedCart = cartHelpers.getCartItems();
-    if (savedCart.length > 0) {
-      setCartItems(savedCart);
-    }
+    cartHelpers.clearCart();
+    setCartItems([]);
   }, []);
 
   const addToCart = (product: Product) => {
@@ -55,31 +53,17 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     return false; // Always return false to allow adding multiple times
   };
 
-  return (
-    <CartContext.Provider 
-      value={{ 
-        cartItems, 
-        addToCart, 
-        removeFromCart, 
-        clearCart,
-        itemCount: cartItems.length,
-        isInCart
-      }}
-    >
-      {children}
-    </CartContext.Provider>
-  );
+  const contextValue = useMemo(() => ({
+    cartItems, 
+    addToCart, 
+    removeFromCart, 
+    clearCart,
+    itemCount: cartItems.length,
+    isInCart
+  }), [cartItems]);
 
   return (
-    <CartContext.Provider 
-      value={{ 
-        cartItems, 
-        addToCart, 
-        removeFromCart, 
-        clearCart,
-        itemCount: cartItems.length
-      }}
-    >
+    <CartContext.Provider value={contextValue}>
       {children}
     </CartContext.Provider>
   );
