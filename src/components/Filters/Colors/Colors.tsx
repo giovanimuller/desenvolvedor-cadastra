@@ -54,6 +54,7 @@ const ColorsFilter: React.FC<ColorsFilterProps> = ({ onChange }) => {
             <label className="checkbox-container">
               <input
                 type="checkbox"
+                id={`color-${color.id}`}
                 checked={selectedColors.includes(color.id)}
                 onChange={() => handleColorChange(color.id)}
               />

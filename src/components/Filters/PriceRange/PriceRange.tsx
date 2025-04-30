@@ -39,6 +39,7 @@ const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({ onChange }) => {
             <label className="checkbox-container">
               <input
                 type="checkbox"
+                id={`price-${range.id}`}
                 checked={selectedRanges.includes(range.id)}
                 onChange={() => handleRangeChange(range.id)}
               />
