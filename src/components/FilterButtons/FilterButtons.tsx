@@ -138,10 +138,10 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({
             </div>
             <div className="modal-footer">
               <button className="apply-button" onClick={applyFilters}>
-                Aplicar Filtros
+                Aplicar
               </button>
               <button className="clear-button" onClick={clearFilters}>
-                Limpar Filtros
+                Limpar
               </button>
             </div>
           </div>
