@@ -34,7 +34,7 @@ const SizesFilter: React.FC<SizesFilterProps> = ({ onChange }) => {
   };
   
   return (
-    <div className="sizes-filter filter-block">
+    <div className="sizes-filter">
       <h3>TAMANHOS</h3>
       <div className="size-grid">
         {sizes.map(size => (

@@ -31,7 +31,7 @@ const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({ onChange }) => {
   };
   
   return (
-    <div className="price-range-filter filter-block">
+    <div className="price-range-filter">
       <h3>FAIXA DE PREÇO</h3>
       <div className="filter-options">
         {priceRanges.map(range => (

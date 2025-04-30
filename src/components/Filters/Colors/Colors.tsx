@@ -46,7 +46,7 @@ const ColorsFilter: React.FC<ColorsFilterProps> = ({ onChange }) => {
   };
   
   return (
-    <div className="colors-filter filter-block">
+    <div className="colors-filter">
       <h3>CORES</h3>
       <div className="filter-options">
         {displayColors.map(color => (
