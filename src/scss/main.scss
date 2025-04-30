@@ -1,8 +1,9 @@
 // filepath: c:\Users\Giovani\Desktop\WORK\CADASTRA\desenvolvedor-cadastra\src\scss\main.scss
 @import './reset.scss';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #f8f8f8;

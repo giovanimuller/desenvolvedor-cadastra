@@ -1,0 +1,14 @@
+.product-list {
+  margin-top: 40px;
+  
+  .product-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .product-list-content {
+    min-height: 300px;
+  }
+}
