@@ -3,6 +3,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* Fixed width calculation */
+  width: calc(100vw - var(--scrollbar-width, 0px));
 }
 
 .container {
