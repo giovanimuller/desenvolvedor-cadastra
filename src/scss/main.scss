@@ -1,24 +1,15 @@
-@import './reset.scss';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
-:root {
-  --color-amarelo: #FFDE59;
-  --color-azul: #3DB2FF;
-  --color-branco: #FFFFFF;
-  --color-cinza: #B0B0B0;
-  --color-laranja: #FF914D;
-  --color-verde: #59CE8F;
-  --color-vermelho: #FF5757;
-  --color-preto: #333333;
-  --color-rosa: #FF97C1;
-  --color-vinho: #800020;
+* {
+  box-sizing: border-box;
 }
 
 html {
   height: 100%;
   margin: 0;
-  /* Always show scrollbar to prevent layout shifts */
   overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -31,4 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+  width: 100%;
 }
