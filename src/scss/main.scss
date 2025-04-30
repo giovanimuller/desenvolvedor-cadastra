@@ -1,10 +1,22 @@
-// filepath: c:\Users\Giovani\Desktop\WORK\CADASTRA\desenvolvedor-cadastra\src\scss\main.scss
 @import './reset.scss';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-amarelo: #FFDE59;
+  --color-azul: #3DB2FF;
+  --color-branco: #FFFFFF;
+  --color-cinza: #B0B0B0;
+  --color-laranja: #FF914D;
+  --color-verde: #59CE8F;
+  --color-vermelho: #FF5757;
+  --color-preto: #333333;
+  --color-rosa: #FF97C1;
+  --color-vinho: #800020;
+}
 
 body {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: #333333;
   background-color: #f8f8f8;
 }

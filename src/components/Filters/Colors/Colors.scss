@@ -1,0 +1,77 @@
+.colors-filter {
+  margin-bottom: 30px;
+  
+  .filter-options {
+    margin-top: 15px;
+  }
+  
+  .filter-option {
+    margin-bottom: 10px;
+    
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-left: 36px;
+      cursor: pointer;
+      font-size: 14px;
+      user-select: none;
+      
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+      
+      .checkmark {
+        position: absolute;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* No checkmark icon needed */
+      
+      /* Color classes are not needed here anymore as we're using CSS variables 
+         and applying colors directly with the style attribute in the component */
+      
+      .color-vermelho {
+        background-color: #FF5757;
+      }
+      
+      .color-preto {
+        background-color: #333333;
+      }
+      
+      .color-rosa {
+        background-color: #FF97C1;
+      }
+      
+      .color-vinho {
+        background-color: #800020;
+      }
+    }
+  }
+  
+  .show-more-btn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 12px;
+    padding: 0;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: underline;
+    
+    &:hover {
+      color: #333;
+    }
+  }
+}

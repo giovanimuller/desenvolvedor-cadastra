@@ -20,8 +20,30 @@
 
 .shopping-bag {
   cursor: pointer;
-}
-
-.shopping-bag img {
-  height: 24px;
+  position: relative;
+  
+  img {
+    height: 24px;
+  }
+  
+  .cart-with-items {
+    position: relative;
+    cursor: pointer;
+    
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #E94B35;
+      color: white;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+  }
 }

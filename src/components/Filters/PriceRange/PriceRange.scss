@@ -1,0 +1,46 @@
+.price-range-filter {
+  margin-bottom: 30px;
+  
+  .filter-options {
+    margin-top: 15px;
+  }
+  
+  .filter-option {
+    margin-bottom: 10px;
+    
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-left: 36px;
+      cursor: pointer;
+      font-size: 14px;
+      user-select: none;
+      
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+      
+      .checkmark {
+        position: absolute;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #FFFFFF;
+        border: 1px solid #DEDEDE;
+        border-radius: 4px;
+      }
+      
+      input:checked ~ .checkmark {
+        background-color: #000;
+        border: none;
+      }
+      
+      /* No checkmark icon needed */
+    }
+  }
+}
