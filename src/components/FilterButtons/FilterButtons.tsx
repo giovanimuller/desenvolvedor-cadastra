@@ -104,18 +104,17 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({
       {/* Filter Modal */}
       {filterModalOpen && (
         <>
-          <div 
+          <button 
+            type="button"
             className="modal-backdrop" 
             onClick={closeFilterModal}
-            role="button"
-            tabIndex={0}
             onKeyDown={(e) => {
-              if (e.key === 'Escape' || e.key === 'Enter') {
+              if (e.key === 'Escape') {
                 closeFilterModal();
               }
             }}
             aria-label="Fechar modal"
-          ></div>
+          ></button>
           <div className="filter-modal">
             <div className="modal-header">
               <div className="header-content">
@@ -151,18 +150,17 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({
       {/* Order Modal */}
       {orderModalOpen && (
         <>
-          <div 
+          <button 
+            type="button"
             className="modal-backdrop" 
             onClick={closeOrderModal}
-            role="button"
-            tabIndex={0}
             onKeyDown={(e) => {
-              if (e.key === 'Escape' || e.key === 'Enter') {
+              if (e.key === 'Escape') {
                 closeOrderModal();
               }
             }}
             aria-label="Fechar modal"
-          ></div>
+          ></button>
           <div className="order-modal">
             <div className="modal-header">
               <h2>Ordenar Por</h2>
