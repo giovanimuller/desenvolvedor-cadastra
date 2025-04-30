@@ -10,7 +10,6 @@ const OrderBy: React.FC<OrderByProps> = ({ onChange, isModal }) => {
   const [isOpen, setIsOpen] = useState(isModal || false);
   const [selectedOption, setSelectedOption] = useState('');
 
-  // If in modal mode, dropdown should be open by default
   useEffect(() => {
     if (isModal) {
       setIsOpen(true);
