@@ -128,8 +128,8 @@ const ProductList: React.FC = () => {
                   {filteredProducts.length === 0 ? (
                     <div className="no-products">Nenhum produto encontrado com os filtros aplicados.</div>
                   ) : (
-                    filteredProducts.slice(0, visibleCount).map(product => (
-                      <ProductCard key={product.id} product={product} />
+                    filteredProducts.slice(0, visibleCount).map((product, index) => (
+                      <ProductCard key={`${product.id}-${index}`} product={product} />
                     ))
                   )}
                 </div>
