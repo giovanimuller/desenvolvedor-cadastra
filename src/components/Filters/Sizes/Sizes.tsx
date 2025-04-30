@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../common/FilterStyles.scss';
 import './Sizes.scss';
 
 interface SizesFilterProps {
   onChange?: (selectedSizes: string[]) => void;
+  selectedSizes?: string[];
 }
 
-const SizesFilter: React.FC<SizesFilterProps> = ({ onChange }) => {
-  const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+const SizesFilter: React.FC<SizesFilterProps> = ({ onChange, selectedSizes: initialSelectedSizes = [] }) => {
+  const [selectedSizes, setSelectedSizes] = useState<string[]>(initialSelectedSizes);
+  
+  // Atualizar o estado local quando as props mudarem
+  useEffect(() => {
+    setSelectedSizes(initialSelectedSizes);
+  }, [initialSelectedSizes]);
   
   const sizes = [
     { id: 'p', label: 'P' },

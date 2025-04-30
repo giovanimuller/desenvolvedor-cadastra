@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../common/FilterStyles.scss';
 import './PriceRange.scss';
 
 interface PriceRangeFilterProps {
   onChange?: (selectedRanges: string[]) => void;
+  selectedRanges?: string[];
 }
 
-const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({ onChange }) => {
-  const [selectedRanges, setSelectedRanges] = useState<string[]>([]);
+const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({ onChange, selectedRanges: initialSelectedRanges = [] }) => {
+  const [selectedRanges, setSelectedRanges] = useState<string[]>(initialSelectedRanges);
+  
+  // Atualizar o estado local quando as props mudarem
+  useEffect(() => {
+    setSelectedRanges(initialSelectedRanges);
+  }, [initialSelectedRanges]);
   
   const priceRanges = [
     { id: 'range_0_50', label: 'de R$0 até R$50' },

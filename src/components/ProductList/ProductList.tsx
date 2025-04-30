@@ -102,20 +102,25 @@ const ProductList: React.FC = () => {
       <div className="product-list-header">
         <PageTitle title="Blusas" />
         <OrderBy onChange={handleOrderChange} />
-      </div>
-      <FilterButtons 
+      </div>      <FilterButtons 
         onColorsChange={handleColorsChange}
         onSizesChange={handleSizesChange}
         onPriceRangeChange={handlePriceRangeChange}
         onOrderChange={handleOrderChange}
+        selectedColors={selectedColors}
+        selectedSizes={selectedSizes}
+        selectedPriceRanges={selectedPriceRanges}
+        sortOrder={sortOrder}
       />
       <div className="product-list-content">
-        <div className="product-list-grid">
-          <div className="filters-column">
+        <div className="product-list-grid">          <div className="filters-column">
             <Filters 
               onColorsChange={handleColorsChange}
               onSizesChange={handleSizesChange}
               onPriceRangeChange={handlePriceRangeChange}
+              selectedColors={selectedColors}
+              selectedSizes={selectedSizes}
+              selectedPriceRanges={selectedPriceRanges}
             />
           </div>
           <div className="products-column">

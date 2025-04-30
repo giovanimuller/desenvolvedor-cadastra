@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../common/FilterStyles.scss';
 import './Colors.scss';
 
 interface ColorsFilterProps {
   onChange?: (selectedColors: string[]) => void;
+  selectedColors?: string[];
 }
 
-const ColorsFilter: React.FC<ColorsFilterProps> = ({ onChange }) => {
-  const [selectedColors, setSelectedColors] = useState<string[]>([]);
+const ColorsFilter: React.FC<ColorsFilterProps> = ({ onChange, selectedColors: initialSelectedColors = [] }) => {
+  const [selectedColors, setSelectedColors] = useState<string[]>(initialSelectedColors);
+  
+  // Atualizar o estado local quando as props mudarem
+  useEffect(() => {
+    setSelectedColors(initialSelectedColors);
+  }, [initialSelectedColors]);
   const [showAllColors, setShowAllColors] = useState(false);
   
   const initialColors = [

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FilterButtons.scss';
 import Filters from '../Filters/Filters';
 import OrderBy from '../OrderBy/OrderBy';
@@ -8,16 +8,34 @@ interface FilterButtonsProps {
   onSizesChange?: (selectedSizes: string[]) => void;
   onPriceRangeChange?: (selectedRanges: string[]) => void;
   onOrderChange?: (value: string) => void;
+  selectedColors?: string[];
+  selectedSizes?: string[];
+  selectedPriceRanges?: string[];
+  sortOrder?: string;
 }
 
 const FilterButtons: React.FC<FilterButtonsProps> = ({ 
   onColorsChange, 
   onSizesChange, 
   onPriceRangeChange,
-  onOrderChange
+  onOrderChange,
+  selectedColors = [],
+  selectedSizes = [],
+  selectedPriceRanges = [],
+  sortOrder = ''
 }) => {
   const [filterModalOpen, setFilterModalOpen] = useState(false);
   const [orderModalOpen, setOrderModalOpen] = useState(false);
+  const [currentColors, setCurrentColors] = useState<string[]>(selectedColors);
+  const [currentSizes, setCurrentSizes] = useState<string[]>(selectedSizes);
+  const [currentPriceRanges, setCurrentPriceRanges] = useState<string[]>(selectedPriceRanges);
+  
+  // Atualizar os estados internos quando as props mudarem
+  useEffect(() => {
+    setCurrentColors(selectedColors);
+    setCurrentSizes(selectedSizes);
+    setCurrentPriceRanges(selectedPriceRanges);
+  }, [selectedColors, selectedSizes, selectedPriceRanges]);
 
   const openFilterModal = () => {
     setFilterModalOpen(true);
@@ -38,14 +56,49 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({
     setOrderModalOpen(false);
     document.body.style.overflow = '';
   };
+  
+  const handleColorsChange = (colors: string[]) => {
+    setCurrentColors(colors);
+  };
+  
+  const handleSizesChange = (sizes: string[]) => {
+    setCurrentSizes(sizes);
+  };
+  
+  const handlePriceRangeChange = (ranges: string[]) => {
+    setCurrentPriceRanges(ranges);
+  };
+  
+  const applyFilters = () => {
+    if (onColorsChange) onColorsChange(currentColors);
+    if (onSizesChange) onSizesChange(currentSizes);
+    if (onPriceRangeChange) onPriceRangeChange(currentPriceRanges);
+    closeFilterModal();
+  };
+  
+  const clearFilters = () => {
+    setCurrentColors([]);
+    setCurrentSizes([]);
+    setCurrentPriceRanges([]);
+    
+    if (onColorsChange) onColorsChange([]);
+    if (onSizesChange) onSizesChange([]);
+    if (onPriceRangeChange) onPriceRangeChange([]);
+    closeFilterModal();
+  };
 
+  // Calcula quantos filtros estão aplicados no total
+  const activeFiltersCount = currentColors.length + currentSizes.length + currentPriceRanges.length;
+  
   return (
     <div className="filter-buttons">
-      <button className="filter-button" onClick={openFilterModal}>
+      <button className={`filter-button ${activeFiltersCount > 0 ? 'has-filters' : ''}`} onClick={openFilterModal}>
         Filtrar
+        {activeFiltersCount > 0 && <span className="filter-badge">{activeFiltersCount}</span>}
       </button>
-      <button className="filter-button" onClick={openOrderModal}>
+      <button className={`filter-button ${sortOrder ? 'has-order' : ''}`} onClick={openOrderModal}>
         Ordenar
+        {sortOrder && <span className="order-active">✓</span>}
       </button>
 
       {/* Filter Modal */}
@@ -65,21 +118,30 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({
           ></div>
           <div className="filter-modal">
             <div className="modal-header">
-              <h2>Filtros</h2>
+              <div className="header-content">
+                <h2>Filtros</h2>
+                
+              </div>
               <button className="close-button" onClick={closeFilterModal}>
                 &times;
               </button>
             </div>
             <div className="modal-content">
               <Filters
-                onColorsChange={onColorsChange}
-                onSizesChange={onSizesChange}
-                onPriceRangeChange={onPriceRangeChange}
+                onColorsChange={handleColorsChange}
+                onSizesChange={handleSizesChange}
+                onPriceRangeChange={handlePriceRangeChange}
+                selectedColors={currentColors}
+                selectedSizes={currentSizes}
+                selectedPriceRanges={currentPriceRanges}
               />
             </div>
             <div className="modal-footer">
-              <button className="apply-button" onClick={closeFilterModal}>
+              <button className="apply-button" onClick={applyFilters}>
                 Aplicar Filtros
+              </button>
+              <button className="clear-button" onClick={clearFilters}>
+                Limpar Filtros
               </button>
             </div>
           </div>

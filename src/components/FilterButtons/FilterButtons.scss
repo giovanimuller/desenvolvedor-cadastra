@@ -13,9 +13,39 @@
     font-weight: 500;
     color: #333333;
     cursor: pointer;
+    position: relative;
 
     &:first-child {
       border-right: 1px solid #C7C7C7;
+    }
+    
+    &.has-filters,
+    &.has-order {
+      font-weight: 600;
+      color: #FB953E;
+    }
+    
+    .order-active {
+      position: absolute;
+      top: 16px;
+      right: 15px;
+      font-size: 14px;
+    }
+    
+    .filter-badge {
+      position: absolute;
+      top: 8px;
+      right: 15px;
+      background-color: #FB953E;
+      color: white;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
     }
   }
 }
@@ -60,10 +90,17 @@
   padding: 15px 20px;
   border-bottom: 1px solid #C7C7C7;
   
-  h2 {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0;
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    
   }
   
   .close-button {
@@ -104,9 +141,23 @@
 .modal-footer {
   padding: 15px 20px;
   border-top: 1px solid #C7C7C7;
+  display: flex;
+  gap: 10px;
+  
+  .clear-button {
+    width: 40%;
+    padding: 15px;
+    background: #FFFFFF;
+    border: 1px solid #C7C7C7;
+    border-radius: 4px;
+    color: #333333;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+  }
   
   .apply-button {
-    width: 100%;
+    width: 60%;
     padding: 15px;
     background: #FB953E;
     border: none;
